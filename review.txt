@@ -4,17 +4,20 @@
  * 2. El nombre del componente se sugiere que sea más descriptivo, esta bien que esté en CamelCase
  * 3. Para garantizar el tipo de dato declarado, se sugiere implementar proptypes o typescript
  * 4. Exite un error semántico, en la variable inicial se declara "location: ''", pero en al final en el prescrito esta como "this.state.local".
- * 5. La utilizacion de "key", este solo se utiiza cuando se tiene que renderizar una lista de datos (array), en este caso la data es un objeto.
- * 6. La URL de la Api podría pasarse a una constante o variable global (.env) y despues crear un carpeta "Services" para gestionarlo desde alli.
+ * 5. La utilizacion de "key", este solo se utiliza cuando se tiene que renderizar una lista de datos (array), en este caso la data es un objeto.
+ * 6. La URL de la Api podría pasarse a una constante o variable global (.env) y despues crear una carpeta "Services" para gestionarlo desde alli.
  */
 
 // Para hacerlo más legible, se sugiere usar destructuring para la data
+
 render() {
   const { name, location } =  this.state;
   return (...)
 }
 
-// El [] en el return hace un error en el render, se gugiere utilizar parentesis () y las dos lineas de codigo englobarlos con React.Fragment
+
+// El [] en el return hace un error en el render, se sugiere utilizar parentesis () y las dos lineas de codigo englobarlos con React.Fragment
+
 render() {
   const { name, location } =  this.state;
   return (
@@ -25,7 +28,9 @@ render() {
   )
 }
 
+
 // En la consulta del servicio hay un error con la recuperación de la data al utilizar "fetch", se sugiere lo siguiente
+
 componentDidMount() {
   fetchUser().then(({ name, location } )=> {
     this.setState({
@@ -41,7 +46,10 @@ async function fetchUser() {
   return user;
 }
 
+
+
 // Se podria hacer un funcion para consultar cualquier usuario
+
 async function fetchUser(key) {
   const response = await fetch(`https://api.github.com/users/${key}`);
   const user = await response.json();
